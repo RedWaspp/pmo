@@ -31,6 +31,8 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    runtimeOnly "org.liquibase:liquibase-core:4.28.0"
+    runtimeOnly 'com.oracle.database.jdbc:ojdbc8:21.1.0.0'
 
 
 
@@ -47,8 +49,11 @@ dependencies {
     implementation 'io.github.resilience4j:resilience4j-circuitbreaker:2.2.0'
 
 // https://mvnrepository.com/artifact/mysql/mysql-connector-java
-    implementation 'mysql:mysql-connector-java:8.0.33'
+//    implementation 'mysql:mysql-connector-java:8.0.33'
     // Database
+
+
+
 }
 
 

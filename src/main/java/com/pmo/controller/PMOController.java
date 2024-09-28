@@ -1,5 +1,6 @@
 package com.pmo.controller;
 
+import com.pmo.appHealth.DatabaseConnectionChecker;
 import com.pmo.demo.LargestEx;
 import com.pmo.service.StateService;
 import com.pmo.service.VehicleService;
@@ -19,9 +20,12 @@ public class PMOController {
     @Autowired
     LargestEx largestEx;
 
+    @Autowired
+    DatabaseConnectionChecker dbConnectionChecker;
+
     @GetMapping(value = "/app/healthCheck")
     public String getHealth() {
-        return "PMO app is up and running";
+        return "PMO app is up and running in Port 9090 and DB Connection Status :  "+dbConnectionChecker.isDatabaseConnected();
     }
 
     @GetMapping(value = "/app/largestEx")
