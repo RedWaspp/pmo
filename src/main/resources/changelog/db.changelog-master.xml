@@ -5,9 +5,6 @@
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
   <changeSet  author="pmosrd"  id="202409">
-
   </changeSet>
-
-
   <!-- ************* END TEST ZONE ************* -->
 </databaseChangeLog>
