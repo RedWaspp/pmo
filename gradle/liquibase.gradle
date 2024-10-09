@@ -1,0 +1,37 @@
+tasks.withType(JavaExec){
+    // systemProperties 'file.encoding': 'UTF-8'
+    defaultCharacterEncoding ='UTF-8'
+//    jvmArgs '-Djava.securty-egd=file://dev/urandom'
+}
+
+task liquibaseUpdate(type: JavaExec){
+    group 'Liquibase'
+    description 'Updates the database directly'
+    classpath = sourceSets.main.runtimeClasspath
+ workingDir sourceSets.main.output.resourcesDir
+    main = "liquibase.integration.commandLine.Main"
+
+    if(project.hasProperty('dbusername'))
+    {
+        args "--username"
+        args "$dbusername"
+    }
+    if(project.hasProperty('dburl'))
+    {
+        args "--url"
+        args "$dburl"
+    }
+    if(project.hasProperty('dbpassword'))
+    {
+        args "--password"
+        args "$dbpassword"
+    }
+    if(project.hasProperty('liquibaseContexts'))
+    {
+        args "--contexts"
+        args "$liquibaseContexts"
+    }
+
+    args "update"
+}
+
