@@ -21,17 +21,17 @@ public class PMOController {
         StateService = stateService;
     }
 
-    @GetMapping(value = "/app/healthCheck")
+    @GetMapping(value = "/")
     public String getHealth() {
-        return "PMO app is up and running in Port 9090";
+        return "PMO app is up and running in Port 9090 : /pmo/*";
     }
 
-    @GetMapping(value = "/app/vehicleInfo")
+    @GetMapping(value = "/pmo/vehicles")
     public List<Vehicle> getAllVehicles() {
         return vehicleService.getAllVehicles();
     }
 
-    @GetMapping(value = "/app/States")
+    @GetMapping(value = "/pmo/states")
     public List<State> getAllStates() {
         return StateService.getAllStates();
     }
