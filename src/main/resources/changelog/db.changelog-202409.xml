@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.10.xsd">
+    <changeSet id="2024-09-10-01" author="msr7641">
+        <comment>insert new oasys_config entry for FOLIO_RECONCILE</comment>
+        <sql>
+            --Row 1
+            INSERT INTO LANGUAGE (COUNTRYCODE, LANGUAGE, ISOFFICIAL, PERCENTAGE) VALUES ('ABW','Dutch','T',5.3);
+--Row 2
+            INSERT INTO LANGUAGE (COUNTRYCODE, LANGUAGE, ISOFFICIAL, PERCENTAGE) VALUES ('ABW','English','F',9.5);
+--Row 3
+            INSERT INTO LANGUAGE (COUNTRYCODE, LANGUAGE, ISOFFICIAL, PERCENTAGE) VALUES ('ABW','Papiamento','F',76.7);
+--Row 4
+            INSERT INTO LANGUAGE (COUNTRYCODE, LANGUAGE, ISOFFICIAL, PERCENTAGE) VALUES ('ABW','Spanish','F',7.4);
+--Row 5
+            INSERT INTO LANGUAGE (COUNTRYCODE, LANGUAGE, ISOFFICIAL, PERCENTAGE) VALUES ('AFG','Balochi','F',0.9);
+--Row 6
+            INSERT INTO LANGUAGE (COUNTRYCODE, LANGUAGE, ISOFFICIAL, PERCENTAGE) VALUES ('AFG','Dari','T',32.1);
+--Row 7
+            INSERT INTO LANGUAGE (COUNTRYCODE, LANGUAGE, ISOFFICIAL, PERCENTAGE) VALUES ('AFG','Pashto','T',52.4);
+        </sql>
+        <rollback>
+
+        </rollback>
+    </changeSet>
+</databaseChangeLog>
