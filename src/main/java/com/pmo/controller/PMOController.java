@@ -1,6 +1,8 @@
 package com.pmo.controller;
 
 import com.pmo.demo.LargestEx;
+import com.pmo.model.State;
+import com.pmo.model.Vehicle;
 import com.pmo.service.StateService;
 import com.pmo.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,41 +12,29 @@ import java.util.List;
 
 @RestController
 public class PMOController {
-    // /app/healthCheck
-    @Autowired
-    VehicleService vehicleService;
+    final VehicleService vehicleService;
+    final StateService StateService;
 
-    @Autowired
-    StateService StateService;
-    @Autowired
-    LargestEx largestEx;
+    public PMOController(VehicleService vehicleService, com.pmo.service.StateService stateService, LargestEx largestEx)
+    {
 
-
+        this.vehicleService = vehicleService;
+        StateService = stateService;
+    }
 
     @GetMapping(value = "/app/healthCheck")
     public String getHealth() {
         return "PMO app is up and running in Port 9090";
     }
 
-    @GetMapping(value = "/app/largestEx")
-    public Integer largestEx() {
-        return largestEx.largest() ;
-    }
-
-
     @GetMapping(value = "/app/vehicleInfo")
-    public List getAllVehicles() {
+    public List<Vehicle> getAllVehicles() {
         return vehicleService.getAllVehicles();
     }
 
     @GetMapping(value = "/app/States")
-    public List getAllStates() {
+    public List<State> getAllStates() {
         return StateService.getAllStates();
     }
-//  Idempotent
-//    @PostMapping // Create RequestBody (Payload)
-//    @PutMapping  // Update by ID (same Payload)  // URI must for ID // 200 Response but no body
-//    @GetMapping // Find ALl or Find by ID (Pay load not required)
-//    @DeleteMapping // Delete ID (Pay load not required
 }
 
