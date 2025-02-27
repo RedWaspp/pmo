@@ -12,7 +12,6 @@ public class finalTest {
     public static void main(String[] args) {
         finalTest obj = new finalTest();
     }
-
     public final void testMethod(){
         System.out.println("Test Method");
     }
